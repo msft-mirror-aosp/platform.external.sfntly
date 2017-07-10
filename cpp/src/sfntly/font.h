@@ -245,7 +245,7 @@ class Font : public RefCounted<Font> {
   int32_t num_tables() { return (int32_t)tables_.size(); }
 
   // Whether the font has a particular table.
-  bool HasTable(int32_t tag) const;
+  bool HasTable(int32_t tag);
 
   // UNIMPLEMENTED: public Iterator<? extends Table> iterator
 

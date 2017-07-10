@@ -20,8 +20,6 @@
 
 #include <string.h>
 
-#include <algorithm>
-
 #include "sfntly/port/memory_input_stream.h"
 #include "sfntly/port/exception_type.h"
 

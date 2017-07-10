@@ -469,14 +469,12 @@ int32_t NameTable::NameId(int32_t index) {
 
 void NameTable::NameAsBytes(int32_t index, ByteVector* b) {
   assert(b);
-  b->clear();
-
   int32_t length = NameLength(index);
-  if (length <= 0)
-    return;
-
+  b->clear();
   b->resize(length);
-  data_->ReadBytes(NameOffset(index), &((*b)[0]), 0, length);
+  if (length > 0) {
+    data_->ReadBytes(NameOffset(index), &((*b)[0]), 0, length);
+  }
 }
 
 void NameTable::NameAsBytes(int32_t platform_id,

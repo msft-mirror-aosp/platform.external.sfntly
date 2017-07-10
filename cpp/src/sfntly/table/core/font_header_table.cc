@@ -239,10 +239,7 @@ void FontHeaderTable::Builder::SetFontDirectionHint(int32_t hint) {
 }
 
 int32_t FontHeaderTable::Builder::IndexToLocFormat() {
-  Table* table = GetTable();
-  if (!table)
-    return IndexToLocFormat::kInvalidOffset;
-  return down_cast<FontHeaderTable*>(table)->IndexToLocFormat();
+  return down_cast<FontHeaderTable*>(GetTable())->IndexToLocFormat();
 }
 
 void FontHeaderTable::Builder::SetIndexToLocFormat(int32_t format) {

@@ -22,8 +22,8 @@
 
 namespace sfntly {
 
-class OutputStream;
 class WritableFontData;
+class OutputStream;
 
 // Writable font data wrapper. Supports reading of data primitives in the
 // TrueType / OpenType spec.
@@ -51,12 +51,6 @@ class ReadableFontData : public FontData,
   explicit ReadableFontData(ByteArray* array);
   virtual ~ReadableFontData();
 
-  static const int32_t kInvalidByte = 128;
-  static const int32_t kInvalidShort = 32768;
-  static const int32_t kInvalidLong = 0xffffffff;
-  static const int32_t kInvalidUnsigned = -1;
-  static const int64_t kInvalidLongDateTime = -1;
-
   static CALLER_ATTACH ReadableFontData* CreateReadableFontData(ByteVector* b);
 
   // Gets a computed checksum for the data. This checksum uses the OpenType spec
@@ -82,7 +76,7 @@ class ReadableFontData : public FontData,
 
   // Read the BYTE at the given index.
   // @param index index into the font data
-  // @return the BYTE; |kInvalidByte| if outside the bounds of the font data
+  // @return the BYTE
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int32_t ReadByte(int32_t index);
 
@@ -100,31 +94,31 @@ class ReadableFontData : public FontData,
 
   // Read the CHAR at the given index.
   // @param index index into the font data
-  // @return the CHAR; -1 if outside the bounds of the font data
+  // @return the CHAR
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int32_t ReadChar(int32_t index);
 
   // Read the USHORT at the given index.
   // @param index index into the font data
-  // @return the USHORT; -1 if outside the bounds of the font data
+  // @return the USHORT
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int32_t ReadUShort(int32_t index);
 
   // Read the SHORT at the given index.
   // @param index index into the font data
-  // @return the SHORT; |kInvalidShort| if outside the bounds of the font data
+  // @return the SHORT
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int32_t ReadShort(int32_t index);
 
   // Read the UINT24 at the given index.
   // @param index index into the font data
-  // @return the UINT24; -1 if outside the bounds of the font data
+  // @return the UINT24
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int32_t ReadUInt24(int32_t index);
 
   // Read the ULONG at the given index.
   // @param index index into the font data
-  // @return the ULONG; kInvalidUnsigned if outside the bounds of the font data
+  // @return the ULONG
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int64_t ReadULong(int32_t index);
 
@@ -142,7 +136,7 @@ class ReadableFontData : public FontData,
 
   // Read the LONG at the given index.
   // @param index index into the font data
-  // @return the LONG; kInvalidLong if outside the bounds of the font data
+  // @return the LONG
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int32_t ReadLong(int32_t index);
 
@@ -154,8 +148,7 @@ class ReadableFontData : public FontData,
 
   // Read the LONGDATETIME at the given index.
   // @param index index into the font data
-  // @return the LONGDATETIME; kInvalidLongDateTime if outside the bounds of the
-  // font data
+  // @return the LONGDATETIME
   // @throws IndexOutOfBoundsException if index is outside the FontData's range
   virtual int64_t ReadDateTimeAsLong(int32_t index);
 

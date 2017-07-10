@@ -18,8 +18,6 @@
 #include <windows.h>
 #endif
 
-#include <algorithm>
-
 #include "sfntly/port/file_input_stream.h"
 #include "sfntly/port/exception_type.h"
 
