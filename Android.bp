@@ -69,7 +69,6 @@ cc_library_static {
         "-Wno-unused-parameter",
         "-Wno-missing-field-initializers",
         "-fvisibility=hidden",
-        "-fPIC",
         "-fno-tree-sra",
         "-Wno-psabi",
         "-ffunction-sections",
@@ -140,4 +139,16 @@ cc_library_static {
     },
 
     export_include_dirs: ["cpp/src"],
+
+    target: {
+        android: {
+            cflags: ["-fPIC"],
+        },
+        not_windows: {
+            cflags: ["-fPIC"],
+        },
+        windows: {
+            enabled: true,
+        },
+    },
 }
