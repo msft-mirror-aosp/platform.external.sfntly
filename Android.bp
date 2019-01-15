@@ -1,6 +1,6 @@
 cc_library_static {
     name: "libsfntly",
-
+    host_supported: true,
     srcs: [
         "cpp/src/sfntly/data/byte_array.cc",
         "cpp/src/sfntly/data/font_data.cc",
@@ -56,8 +56,7 @@ cc_library_static {
     ],
 
     shared_libs: [
-        "libicuuc",
-        "libicui18n",
+        "libandroidicu",
     ],
 
     cflags: [
