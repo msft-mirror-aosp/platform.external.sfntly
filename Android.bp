@@ -74,7 +74,6 @@ cc_library_static {
         "-ffunction-sections",
         "-funwind-tables",
         "-g",
-        "-fstack-protector",
         "-fno-short-enums",
         "-finline-limit=64",
         "-Wa,--noexecstack",
@@ -149,6 +148,10 @@ cc_library_static {
         },
         windows: {
             enabled: true,
+            // "-fstack-protector" is not used by default on Windows, and enabling it
+            // on one library only prevents this library from being linked successfully
+            // when used as a dependency. So we disable it for Windows.
+            cflags: ["-fno-stack-protector"],
         },
     },
 }
