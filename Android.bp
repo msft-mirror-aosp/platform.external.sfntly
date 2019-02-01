@@ -69,13 +69,11 @@ cc_library_static {
         "-Wno-unused-parameter",
         "-Wno-missing-field-initializers",
         "-fvisibility=hidden",
-        "-fPIC",
         "-fno-tree-sra",
         "-Wno-psabi",
         "-ffunction-sections",
         "-funwind-tables",
         "-g",
-        "-fstack-protector",
         "-fno-short-enums",
         "-finline-limit=64",
         "-Wa,--noexecstack",
@@ -140,4 +138,20 @@ cc_library_static {
     },
 
     export_include_dirs: ["cpp/src"],
+
+    target: {
+        android: {
+            cflags: ["-fPIC"],
+        },
+        not_windows: {
+            cflags: ["-fPIC"],
+        },
+        windows: {
+            enabled: true,
+            // "-fstack-protector" is not used by default on Windows, and enabling it
+            // on one library only prevents this library from being linked successfully
+            // when used as a dependency. So we disable it for Windows.
+            cflags: ["-fno-stack-protector"],
+        },
+    },
 }
