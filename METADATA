@@ -5,10 +5,10 @@ third_party {
     type: GIT
     value: "https://github.com/googlefonts/sfntly.git"
   }
-  version: "64f78562d2003eb7cacaaa86a398cbd41881ba6f"
+  version: "9620b607af5b796badefebcf16d7ce6e6786f205"
   last_upgrade_date {
-    year: 2017
-    month: 4
-    day: 11
+    year: 2019
+    month: 5
+    day: 3
   }
 }
