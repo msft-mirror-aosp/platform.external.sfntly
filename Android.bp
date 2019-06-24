@@ -10,10 +10,6 @@ cc_library_static {
         "cpp/src/sample/chromium/subsetter_impl.cc",
     ],
 
-    shared_libs: [
-        "libandroidicu",
-    ],
-
     cflags: [
         "-fstack-protector",
         "--param=ssp-buffer-size=4",
@@ -94,6 +90,13 @@ cc_library_static {
     target: {
         android: {
             cflags: ["-fPIC"],
+            shared_libs: ["libandroidicu"],
+        },
+        host: {
+            shared_libs: [
+                "libicui18n",
+                "libicuuc"
+            ],
         },
         not_windows: {
             cflags: ["-fPIC"],
