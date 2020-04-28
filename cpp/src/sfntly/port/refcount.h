@@ -97,8 +97,6 @@
   #pragma warning(disable:4250)
 #endif
 
-bool TestSmartPointer();
-
 namespace sfntly {
 
 template <typename T>
@@ -159,7 +157,6 @@ class RefCounted : virtual public RefCount {
   }
 
   mutable size_t ref_count_;  // reference count of current object
-  friend bool ::TestSmartPointer();
 #if defined (ENABLE_OBJECT_COUNTER)
   static size_t object_counter_;
   static size_t next_id_;
