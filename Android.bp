@@ -58,7 +58,6 @@ cc_library_static {
         "-fno-short-enums",
         "-finline-limit=64",
         "-Wa,--noexecstack",
-        "-U_FORTIFY_SOURCE",
         "-Wno-extra",
         "-Wno-ignored-qualifiers",
         "-Wno-type-limits",
@@ -92,7 +91,6 @@ cc_library_static {
         "-DNDEBUG",
         "-DNVALGRIND",
         "-DDYNAMIC_ANNOTATIONS_ENABLED=0",
-        "-D_FORTIFY_SOURCE=2",
     ],
 
     cppflags: [
