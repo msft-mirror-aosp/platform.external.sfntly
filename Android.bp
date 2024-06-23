@@ -103,16 +103,6 @@ cc_library_static {
         "-Wno-sign-promo",
     ],
 
-    debug: {
-        cflags: [
-            "-UNDEBUG",
-            "-UNVALGRIND",
-            "-DDYNAMIC_ANNOTATIONS_ENABLED=1",
-            "-DWTF_USE_DYNAMIC_ANNOTATIONS=1",
-            "-D_DEBUG",
-        ],
-    },
-
     export_include_dirs: ["cpp/src"],
 
     target: {
@@ -123,7 +113,7 @@ cc_library_static {
         host: {
             shared_libs: [
                 "libicui18n",
-                "libicuuc"
+                "libicuuc",
             ],
         },
         not_windows: {
